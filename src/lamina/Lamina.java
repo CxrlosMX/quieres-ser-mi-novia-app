@@ -54,7 +54,7 @@ public class Lamina extends JPanel {
                 Random d = new Random();
                 int a = d.nextInt(400);
                 int b = d.nextInt(400);
-                botonNo.setLocastion(a, b);
+                botonNo.setLocation(a, b);
             }
 
         });
