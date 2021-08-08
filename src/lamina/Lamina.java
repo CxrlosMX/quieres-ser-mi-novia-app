@@ -8,6 +8,10 @@ package lamina;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -27,7 +31,8 @@ public class Lamina extends JPanel {
     private JLabel mensaje;
 
     //Botones
-    private JButton botonSi, botonNo;
+    private  JButton botonSi;
+    private final JButton botonNo;
 
     public Lamina() {
         //Asignamos un layout a la lamina principal
@@ -39,9 +44,23 @@ public class Lamina extends JPanel {
         lamina3 = new JPanel();
 
         this.addBoton(botonSi, lamina3, "SI", "Serif", 15, Font.BOLD);
-        this.addBoton(botonNo, lamina3, "NO", "Serif", 15, Font.BOLD);
+       // this.addBoton(botonNo, lamina3, "NO", "Serif", 15, Font.BOLD);
+        
+        botonNo=new JButton("NO");
+        botonNo.addMouseListener(new MouseAdapter() {
+
+            @Override
+            public void mouseEntered(MouseEvent me) {
+                Random d = new Random();
+                int a = d.nextInt(400);
+                int b = d.nextInt(400);
+                botonNo.setLocastion(a, b);
+            }
+
+        });
+        lamina3.add(botonNo);
         add(lamina2, BorderLayout.NORTH);
-        add(lamina3, BorderLayout.CENTER);
+        add(lamina3);
     }
 
     //Método que me devuelve una lamina
@@ -59,7 +78,14 @@ public class Lamina extends JPanel {
     //Método que genera los botones
     public void addBoton(JButton boton, JPanel lamina, String mensaje, String tipoLetra, int tamagno, int estilo) {
         boton = new JButton(mensaje);
+        
+        /*
+        Evento
+        */
+      
+        
         boton.setFont(new Font(tipoLetra, estilo, tamagno));
+        
         lamina.add(boton);
     }
 
