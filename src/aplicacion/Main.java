@@ -6,6 +6,9 @@
 
 package aplicacion;
 
+import javax.swing.JFrame;
+import miMarco.Marco;
+
 /**
  *
  * @author: CxrlosMX
@@ -16,5 +19,9 @@ package aplicacion;
  * 
  */
 public class Main {
+    public static void main(String[] args) {
+        Marco marco= new Marco();
+        marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
 
 }
