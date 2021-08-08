@@ -22,12 +22,15 @@ import lamina.Lamina;
 public class Marco extends JFrame {
 
     public Marco() {
-        setVisible(true);
-        setTitle("Quieres ser mi novia?");
 
+        setVisible(true);
+        //Titulo del JFrame
+        setTitle("Quieres ser mi novia?"); 
+        //Asignamos un icono
         ImageIcon ImageIcon = new ImageIcon("src/corazon.jpg");
         Image image = ImageIcon.getImage();
         this.setIconImage(image);
+        //Asignamos una dimención
         setBounds(400, 150, 500, 500);
         Lamina lamina = new Lamina();
         add(lamina);
