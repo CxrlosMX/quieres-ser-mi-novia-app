@@ -22,6 +22,7 @@ import lamina.Lamina;
 public class Marco extends JFrame {
 
     public Marco() {
+        //Método para que no se pueda redimencionar nuestra ventana
         setResizable(false);
         setVisible(true);
         //Titulo del JFrame

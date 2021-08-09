@@ -49,15 +49,15 @@ public class Lamina extends JPanel {
             @Override
             public void mouseEntered(MouseEvent me) {
                 Random d = new Random();
-                int a = d.nextInt(300);
-                int b = d.nextInt(300);
-                botonNo.setLocation(a, b);
+                int a = d.nextInt(350);
+                int b = d.nextInt(400);
+               // botonNo.setLocation(a, b);
+                botonNo.setLocation(b, a);
             }
 
         });
-        lamina3.add(botonNo);
         add(lamina2, BorderLayout.NORTH);
-        add(lamina3);
+        add(lamina3,BorderLayout.CENTER);
     }
 
     //Método que me devuelve una lamina
@@ -76,6 +76,7 @@ public class Lamina extends JPanel {
     public JButton addBoton(JPanel lamina, String mensaje, String tipoLetra, int tamagno, int estilo) {
         JButton boton = new JButton(mensaje);
         boton.setFont(new Font(tipoLetra, estilo, tamagno));
+        boton.setAlignmentX(300);
         lamina.add(boton);
 
         return boton;
