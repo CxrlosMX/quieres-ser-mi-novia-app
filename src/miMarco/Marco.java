@@ -22,7 +22,7 @@ import lamina.Lamina;
 public class Marco extends JFrame {
 
     public Marco() {
-
+        setResizable(false);
         setVisible(true);
         //Titulo del JFrame
         setTitle("Quieres ser mi novia?"); 

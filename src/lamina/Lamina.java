@@ -31,29 +31,26 @@ public class Lamina extends JPanel {
     private JLabel mensaje;
 
     //Botones
-    private  JButton botonSi;
-    private final JButton botonNo;
+    private final JButton botonNo, botonSi;
 
     public Lamina() {
         //Asignamos un layout a la lamina principal
         setLayout(new BorderLayout());
 
-        this.dameLaminaTexto("Quieres ser mi novia?", "Arial", 50, Font.ITALIC, new Color(4, 4, 2), Color.WHITE);
+        this.dameLaminaTexto("Quieres ser mi novia?", "Agency FB", 50, Font.ITALIC, new Color(4, 4, 2), Color.WHITE);
 
         //Agregmos la tercera lamina
         lamina3 = new JPanel();
 
-        this.addBoton(botonSi, lamina3, "SI", "Serif", 15, Font.BOLD);
-       // this.addBoton(botonNo, lamina3, "NO", "Serif", 15, Font.BOLD);
-        
-        botonNo=new JButton("NO");
+        botonSi = this.addBoton(lamina3, "SI", "Serif", 15, Font.BOLD);
+        botonNo = this.addBoton(lamina3, "NO", "Serif", 15, Font.BOLD);
         botonNo.addMouseListener(new MouseAdapter() {
 
             @Override
             public void mouseEntered(MouseEvent me) {
                 Random d = new Random();
-                int a = d.nextInt(400);
-                int b = d.nextInt(400);
+                int a = d.nextInt(300);
+                int b = d.nextInt(300);
                 botonNo.setLocation(a, b);
             }
 
@@ -76,17 +73,12 @@ public class Lamina extends JPanel {
     }
 
     //Método que genera los botones
-    public void addBoton(JButton boton, JPanel lamina, String mensaje, String tipoLetra, int tamagno, int estilo) {
-        boton = new JButton(mensaje);
-        
-        /*
-        Evento
-        */
-      
-        
+    public JButton addBoton(JPanel lamina, String mensaje, String tipoLetra, int tamagno, int estilo) {
+        JButton boton = new JButton(mensaje);
         boton.setFont(new Font(tipoLetra, estilo, tamagno));
-        
         lamina.add(boton);
+
+        return boton;
     }
 
 }
