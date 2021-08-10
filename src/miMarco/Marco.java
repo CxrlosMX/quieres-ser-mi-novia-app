@@ -8,6 +8,7 @@ package miMarco;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import lamina.Lamina;
 
 /**
@@ -20,13 +21,14 @@ import lamina.Lamina;
  *
  */
 public class Marco extends JFrame {
-
+    
     public Marco() {
         //Método para que no se pueda redimencionar nuestra ventana
         setResizable(false);
         setVisible(true);
-        //Titulo del JFrame
-        setTitle("Quieres ser mi novia?"); 
+        //setContentPane(new JLabel(new ImageIcon("recursos/fondo.jpg")));
+       //Titulo del JFrame
+        setTitle("Quieres ser mi novia?");
         //Asignamos un icono
         ImageIcon ImageIcon = new ImageIcon("src/corazon.jpg");
         Image image = ImageIcon.getImage();
@@ -34,7 +36,8 @@ public class Marco extends JFrame {
         //Asignamos una dimención
         setBounds(400, 150, 500, 500);
         Lamina lamina = new Lamina();
+        
         add(lamina);
     }
-
+    
 }

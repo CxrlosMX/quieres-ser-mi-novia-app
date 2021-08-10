@@ -8,12 +8,23 @@ package lamina;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -41,8 +52,20 @@ public class Lamina extends JPanel {
 
         //Agregmos la tercera lamina
         lamina3 = new JPanel();
-
+       
+        
         botonSi = this.addBoton(lamina3, "SI", "Serif", 15, Font.BOLD);
+        botonSi.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource()==botonSi){
+                JOptionPane.showMessageDialog(lamina3, "Sabia que dirias que si!!", ":)", -1, new ImageIcon("recursos/c.gif"));
+                System.exit(0);
+                }
+            }
+        });
+
         botonNo = this.addBoton(lamina3, "NO", "Serif", 15, Font.BOLD);
         botonNo.addMouseListener(new MouseAdapter() {
 
@@ -51,13 +74,13 @@ public class Lamina extends JPanel {
                 Random d = new Random();
                 int a = d.nextInt(350);
                 int b = d.nextInt(400);
-               // botonNo.setLocation(a, b);
+                // botonNo.setLocation(a, b);
                 botonNo.setLocation(b, a);
             }
 
         });
         add(lamina2, BorderLayout.NORTH);
-        add(lamina3,BorderLayout.CENTER);
+        add(lamina3, BorderLayout.CENTER);
     }
 
     //Método que me devuelve una lamina
@@ -81,5 +104,7 @@ public class Lamina extends JPanel {
 
         return boton;
     }
+
+ 
 
 }
